@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="EcoMarket ofrece productos orgánicos y sostenibles. Compra frutas, verduras y granos frescos con entrega ecológica.">
+    <meta name="keywords" content="EcoMarket, productos orgánicos, alimentos sostenibles, frutas, verduras, granos, ecológico">
+    <meta name="author" content="EcoMarket">
+    <title>EcoMarket - Productos Orgánicos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="EcoMarket.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  </head>
+  <body>
+    <!-- Header -->
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #4CAF50;">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="logo.jpg" alt="EcoMarket Logo" style="height: 60px; width: 60px; object-fit: cover; border-radius: 50%; margin-right: 10px;">
+      <span class="text-black fw-bold">EcoMarket Senati</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link text-white" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#productos">Productos</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#masvendidos">Más Vendidos</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#descuentos">Descuentos</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#nosotros">Sobre Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="#blog">Blog</a></li>
+        <li class="nav-item">
+          <form class="d-flex" id="searchForm">
+            <input class="form-control me-2" type="search" placeholder="Buscar productos" aria-label="Buscar" id="searchInput">
+            <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+          </form>
+        </li>
+        <li class="nav-item"><a class="nav-link cart-icon-nav text-white" href="#" aria-label="Carrito de compras"><i class="bi bi-cart"></i> <span class="cart-count">0</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <!-- Carrito de compras -->
+    <div class="cart-icon" aria-label="Abrir carrito">
+      <span class="cart-count">0</span> 🛒
+    </div>
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="modal-cart" role="dialog" aria-labelledby="cartModalLabel">
+      <div class="modal-cart-content">
+        <span class="close-button" aria-label="Cerrar carrito">×</span>
+        <h2 id="cartModalLabel">🛒 Tu Carrito</h2>
+        <ul id="cart-items-list"></ul>
+        <div class="cart-total mt-3">
+          <strong>Total: <span id="cart-total">S/0.00</span></strong>
+        </div>
+        <button class="btn btn-success mt-3" id="checkout-btn">Proceder al Pago</button>
+      </div>
+    </div>
+    <!-- Banner principal dinámico -->
+    <section id="inicio" class="position-relative overflow-hidden" style="background-color: #f5f5f5;">
+      <div id="carouselEcoMarket" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Productos Orgánicos.jpeg" class="d-block w-100" alt="Productos Orgánicos" style="object-fit: cover; height: 500px;" loading="lazy">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="fw-bold text-shadow">Tu mercadillo natural a un solo clic</h2>
+              <a href="#productos" class="btn btn-success mt-3">COMPRAR</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="Mercado Ecológico.webp" class="d-block w-100" alt="Mercado Ecológico" style="object-fit: cover; height: 500px;" loading="lazy">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="fw-bold text-shadow">Conecta con la naturaleza 🌱</h2>
+              <a href="#productos" class="btn btn-success mt-3">DESCUBRIR</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="Granos Naturales.jpg" class="d-block w-100" alt="Granos Naturales" style="object-fit: cover; height: 500px;" loading="lazy">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="fw-bold text-shadow">Alimentos sanos para una vida plena</h2>
+              <a href="#productos" class="btn btn-success mt-3">VER MÁS</a>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselEcoMarket" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselEcoMarket" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </section>
+    <!-- Sección Productos -->
+    <section id="productos" class="container py-5">
+      <h2 class="text-center mb-5">Nuestros Productos</h2>
+      <div class="mb-4">
+        <label for="categoryFilter" class="form-label">Filtrar por categoría:</label>
+        <select id="categoryFilter" class="form-select w-25 d-inline-block">
+          <option value="all">Todos</option>
+          <option value="fruits">Frutas</option>
+          <option value="vegetables">Verduras</option>
+          <option value="grains">Granos</option>
+        </select>
+        <label for="sortFilter" class="form-label ms-3">Ordenar por:</label>
+        <select id="sortFilter" class="form-select w-25 d-inline-block">
+          <option value="name">Nombre</option>
+          <option value="price">Precio</option>
+        </select>
+      </div>
+      <div class="row" id="product-list"></div>
+    </section>
+    <!-- Más Vendidos -->
+    <section id="masvendidos" class="container py-5">
+      <h2 class="text-center mb-5">Productos Más Vendidos 🔥</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="Manzanas Orgánicas.avif" class="card-img-top" alt="Manzanas Orgánicas" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Manzanas Orgánicas</h5>
+              <p class="card-text">Deliciosas y frescas. S/8.00</p>
+              <button class="btn btn-success add-to-cart" data-index="0">Comprar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="Aguacates.jpeg" class="card-img-top" alt="Aguacates" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Aguacates Eco</h5>
+              <p class="card-text">Recién cosechados. S/12.00</p>
+              <button class="btn btn-success add-to-cart" data-index="4">Comprar</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="Zanahorias Naturales1.jpeg" class="card-img-top" alt="Zanahorias" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Zanahorias Naturales</h5>
+              <p class="card-text">Ideales para ensaladas. S/5.50</p>
+              <button class="btn btn-success add-to-cart" data-index="5">Comprar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Descuentos Especiales -->
+    <section id="descuentos" class="py-5 bg-light">
+      <div class="container text-center">
+        <h2 class="mb-4">Descuentos Especiales 🎯</h2>
+        <p>¡Aprovecha nuestras ofertas limitadas en productos ecológicos!</p>
+        <a href="#productos" class="btn btn-danger">Ver Ofertas</a>
+      </div>
+    </section>
+    <!-- Beneficios -->
+    <section id="nosotros" class="py-5 bg-success text-white text-center">
+      <div class="container">
+        <h2 class="mb-4">¿Por qué elegir EcoMarket?</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <i class="bi bi-truck display-4"></i>
+            <h4>Entregas Sostenibles</h4>
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-leaf display-4"></i>
+            <h4>Productos 100% Orgánicos</h4>
+          </div>
+          <div class="col-md-4">
+            <i class="bi bi-person-heart display-4"></i>
+            <h4>Atención Personalizada</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonios -->
+    <section class="container py-5">
+      <h2 class="text-center mb-5">Testimonios de Clientes</h2>
+      <div class="row text-center">
+        <div class="col-md-6 mb-4">
+          <blockquote>"Productos frescos y un servicio excelente."</blockquote>
+          <cite>- Gustavo Apaza</cite>
+        </div>
+        <div class="col-md-6 mb-4">
+          <blockquote>"¡Me encanta su compromiso con el medio ambiente!"</blockquote>
+          <cite>- Juan Omar Huanco</cite>
+        </div>
+      </div>
+    </section>
+    <!-- Video ambiental -->
+    <section class="py-5 text-center">
+      <h2>Relájate con nuestro video eco</h2>
+      <div class="container">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/1ZYbU82GVz4" title="Música Ambiental" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+    <!-- Blog/Consejos Ecológicos -->
+    <section id="blog" class="container py-5">
+      <h2 class="text-center mb-5">Consejos Ecológicos 🌿</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img src="Vida Sostenible.jpeg" class="card-img-top" alt="Vida Sostenible" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">5 Tips para una Vida Sostenible</h5>
+              <p class="card-text">Descubre cómo reducir tu huella de carbono con pequeños cambios diarios.</p>
+              <a href="#" class="btn btn-outline-success">Leer Más</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img src="Recetas con Productos Orgánicos.jpeg" class="card-img-top" alt="Recetas Orgánicas" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Recetas con Productos Orgánicos</h5>
+              <p class="card-text">Prueba nuestras recetas saludables usando ingredientes frescos.</p>
+              <a href="#" class="btn btn-outline-success">Leer Más</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <img src="Compostaje.jpeg" class="card-img-top" alt="Compostaje" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Guía de Compostaje en Casa</h5>
+              <p class="card-text">Aprende a convertir tus desechos en abono natural.</p>
+              <a href="#" class="btn btn-outline-success">Leer Más</a>
+            </div>
+          </divscs
+        </div>
+      </div>
+    </section>
+    <!-- Certificaciones -->
+    <section id="certificaciones" class="py-5 bg-light text-center">
+      <div class="container">
+        <h2 class="mb-4">Nuestras Certificaciones</h2>
+        <div class="row">
+          <div class="col-md-3">
+            <i class="bi bi-shield-check display-4 text-success"></i>
+            <h4>USDA Organic</h4>
+            <p>Productos certificados 100% orgánicos.</p>
+          </div>
+          <div class="col-md-3">
+            <i class="bi bi-globe display-4 text-success"></i>
+            <h4>Comercio Justo</h4>
+            <p>Apoyamos el comercio justo y sostenible.</p>
+          </div>
+          <div class="col-md-3">
+            <i class="bi bi-leaf display-4 text-success"></i>
+            <h4>Sin OMG</h4>
+            <p>Sin organismos genéticamente modificados.</p>
+          </div>
+          <div class="col-md-3">
+            <i class="bi bi-box display-4 text-success"></i>
+            <h4>Envases Eco</h4>
+            <p>Embalajes reciclables y biodegradables.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Newsletter -->
+    <section id="newsletter" class="py-5 bg-success text-white text-center">
+      <div class="container">
+        <h2 class="mb-4">Únete a Nuestra Comunidad</h2>
+        <p>Recibe ofertas exclusivas y consejos ecológicos en tu correo.</p>
+        <form id="newsletterForm" class="d-flex justify-content-center">
+          <input type="email" class="form-control w-50 me-2" placeholder="Tu correo electrónico" required aria-label="Correo electrónico">
+          <button type="submit" class="btn btn-light">Suscribirse</button>
+        </form>
+      </div>
+    </section>
+   <!-- Mapa de Juliaca, Perú -->
+<section class="container py-5">
+  <h2 class="text-center mb-4">Encuéntranos 📍</h2>
+  <div class="ratio ratio-16x9">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3809.9789427755664!2d-70.13984882421978!3d-15.49968878505132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9158db1ed76de2f5%3A0x1ff310c58a62055b!2sJuliaca%2C%20Per%C3%BA!5e0!3m2!1ses-419!2spe!4v1714154977741!5m2!1ses-419!2spe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" aria-label="Mapa de Juliaca Perú"></iframe>
+  </div>
+</section>
+    <!-- Formulario de Contacto -->
+    <section id="contacto" class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Contáctanos</h2>
+        <form id="contactForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Nombre" required aria-label="Nombre">
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Correo electrónico" required aria-label="Correo electrónico">
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" rows="4" placeholder="Mensaje" required aria-label="Mensaje"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-success">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Footer -->
+<footer class="bg-dark text-light text-center py-3">
+  <p>© 2025 EcoMarket | <a href="#terminos" class="text-light">Términos</a> | <a href="#politicas" class="text-light">Políticas</a> | <a href="#contacto" class="text-light">Contacto</a></p>
+  <div>
+    <a href="https://www.facebook.com/share/16L7QbK7t8/" class="text-light me-3" aria-label="Facebook" target="_blank">
+      <i class="bi bi-facebook"></i>
+    </a>
+    <a href="https://www.instagram.com/cesar.cruzz.3133?igsh=aDF2a3diNGhrMGR2" class="text-light me-3" aria-label="Instagram" target="_blank">
+      <i class="bi bi-instagram"></i>
+    </a>
+    <a href="https://wa.me/tu-numero" class="text-light" aria-label="WhatsApp" target="_blank">
+      <i class="bi bi-whatsapp"></i>
+    </a>
+  </div>
+</footer>
+    <!-- Botón Volver Arriba -->
+    <button id="back-to-top" class="btn btn-success" aria-label="Volver arriba">↑</button>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="EcoMarket.js"></script>
+  </body>
+</html>
